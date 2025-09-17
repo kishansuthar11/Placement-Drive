@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantify Pvt. Ltd. - Registration</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Quantify Pvt. Ltd.</h1>
+        <p><b>Available Roles & CTC:</b></p>
+        <ul class="role-list">
+            <li>Software Development Engineer – 7 LPA</li>
+            <li>Data Analyst – 7 LPA</li>
+            <li>Web Developer – 7 LPA</li>
+            <li>Quality Assurance Engineer – 7 LPA</li>
+            <li>Data Scientist – 7 LPA</li>
+            <li>Database Administrator – 7 LPA</li>
+            <li>HR Executive – 4 LPA</li>
+            <li>Support Engineer – 4 LPA</li>
+            <li>IT Administrator – 4 LPA</li>
+            <li>Business Analyst – 4 LPA</li>
+            <li>Technical Support – 4 LPA</li>
+        </ul>
+
+        <hr>
+
+        <h2>Candidate Registration Form</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <p>{{ form.name.label }} {{ form.name }}</p>
+            <p>{{ form.father_name.label }} {{ form.father_name }}</p>
+            <p>{{ form.email.label }} {{ form.email }}</p>
+            <p>{{ form.mobile.label }} {{ form.mobile }}</p>
+            <p>{{ form.age.label }} {{ form.age }}</p>
+
+            <div class="radio">
+                <p><b>{{ form.job_role.label }}</b></p>
+                {{ form.job_role }}
+            </div>
+
+            <p>{{ form.resume.label }} {{ form.resume }}</p>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>
